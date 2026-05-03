@@ -1,6 +1,0 @@
-{
-  "name": "Media Output Switcher",
-  "description": "Android application to quickly access the native media output selection menu via Tile Service or Shortcut.",
-  "requestFramePermissions": [],
-  "majorCapabilities": []
-}
