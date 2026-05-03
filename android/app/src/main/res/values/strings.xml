@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Output Switcher</string>
+    <string name="tile_label">Media Output</string>
+</resources>
