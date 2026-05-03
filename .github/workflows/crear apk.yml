@@ -1,0 +1,32 @@
+name: Compilar APK Android
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Clonar el repositorio
+      uses: actions/checkout@v4
+    
+    - name: Configurar Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    
+    - name: Dar permisos al gradlew
+      run: chmod +x gradlew
+    
+    - name: Compilar APK Debug
+      run: ./gradlew assembleDebug
+    
+    - name: Subir APK como artefacto
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-android
+        path: app/build/outputs/apk/debug/*.apk
