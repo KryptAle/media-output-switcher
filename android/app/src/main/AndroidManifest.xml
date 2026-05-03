@@ -34,7 +34,28 @@
                 android:name="android.service.quicksettings.ACTIVE_TILE"
                 android:value="false" />
         </service>
+        <!-- Actividad para Shortcut Maker -->
+        <activity
+            android:name=".SwitcherShortcutActivity"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
+        <!-- Servicio para el botón de Ajustes Rápidos -->
+        <service
+            android:name=".AudioOutputTileService"
+            android:label="Salida de Audio"
+            android:icon="@drawable/ic_audio"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
